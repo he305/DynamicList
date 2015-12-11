@@ -11,5 +11,5 @@ Comp::Comp(int value)
 
 void Comp::print()
 {
-	cout << val;
+	cout << val << endl;
 }

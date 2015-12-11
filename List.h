@@ -9,6 +9,8 @@ public:
 	List();
 	~List();
 	void addElement(int);
+	void show();
+	int getSize();
 private:
 	bool isEmpty();
 	int size;
