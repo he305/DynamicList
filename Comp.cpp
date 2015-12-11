@@ -13,3 +13,8 @@ void Comp::print()
 {
 	cout << val << endl;
 }
+
+int Comp::getValue()
+{
+	return val;
+}

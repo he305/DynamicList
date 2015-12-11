@@ -23,11 +23,7 @@ void List::addElement(int value)
 	if (isEmpty())
 	{
 		head = c;
-	}
-	else if (size == 1)
-	{
-		head->next = c;
-		tail = c;  
+		tail = c;
 	}
 	else
 	{
@@ -46,6 +42,26 @@ void List::show()
 		temp->print();
 		temp = temp->next;
 	}
+}
+
+int List::searchByKey(int key)
+{
+	if (key >= size || key < 0)
+	{
+		std::cout << "Out of bounds" << std::endl;
+		return 0;
+	}
+	
+	int tempKey = 0;
+	Comp* tempComp = head;
+	
+	while(tempKey != key)
+	{
+		tempComp = tempComp->next;
+		tempKey++;
+	}
+	
+	return tempComp->getValue();
 }
 
 bool List::isEmpty()

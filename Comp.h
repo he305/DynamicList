@@ -7,6 +7,7 @@ public:
 	Comp(int);
 	void print();
 	Comp* next;
+	int getValue();
 private:
 	int val;
 };
