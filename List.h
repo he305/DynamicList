@@ -11,11 +11,13 @@ public:
 	~List();
 	void addElement(int value);
 	void show();
-	int searchByKey(int key);
+	int get(int key);
 	int getSize();
+	void remove(int key);
 	bool isEmpty();
 private:
 	int size;
+	Comp* getComp(int key);
 	Comp* head;
 	Comp* tail;
 };

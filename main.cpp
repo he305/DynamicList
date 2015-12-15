@@ -11,6 +11,7 @@ void showMenu();
 void addElementFunc();
 void searchElement();
 void fillList();
+void deleteElem();
 
 int main()
 {
@@ -30,6 +31,7 @@ void showMenu()
 		cout << "1 - add element" << endl;
 		cout << "2 - show list" << endl;
 		cout << "3 - search element by key" << endl;
+		cout << "4 - del" << endl;
 		cout << "9 - autoFill(test)" << endl;
 		cout << "(ESC) - exit" << endl;
 		
@@ -50,6 +52,10 @@ void showMenu()
 				searchElement();
 				getch();
 				break;
+			case '4':
+				deleteElem();
+				getch();
+				break;	
 			case '9':
 				fillList();
 				break;
@@ -115,7 +121,39 @@ void searchElement()
         }
 	}
 	
-	cout << "Element at key " << key << " = " << l->searchByKey(key);
+	cout << "Element at key " << key << " = " << l->get(key);
+}
+
+void deleteElem()
+{
+	if (l->isEmpty())
+	{
+		cout << "List is clear";
+		return;	
+	}
+	
+	cout << "Write a key ";
+	int key;
+	
+	while (true)
+	{
+        if(cin >> key)
+        {
+        	cin.clear();
+        	cin.get();
+            break;
+        }
+        else if(!cin || key != (int)key)
+		{
+            cout << "Write an integer!";
+            cin.clear();
+            cin.get();
+            continue;
+        }
+	}
+	
+	l->remove(key);
+	cout << "Deleted" << endl;
 }
 
 void fillList()

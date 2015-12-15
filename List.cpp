@@ -44,7 +44,7 @@ void List::show()
 	}
 }
 
-int List::searchByKey(int key)
+int List::get(int key)
 {
 	if (key >= size || key < 0)
 	{
@@ -62,6 +62,52 @@ int List::searchByKey(int key)
 	}
 	
 	return tempComp->getValue();
+}
+
+void List::remove(int key)
+{
+	if (key >= size || key < 0)
+	{
+		std::cout << "Out of bounds" << std::endl;
+		return;
+	}
+	
+	Comp* del;
+	
+	if (key == 0)
+	{
+		del = head;
+		head = head->next;
+	}
+	else 
+	{
+		Comp* prev = getComp(key-1);
+		del = prev->next;
+		prev->next = del->next;
+	}
+	
+	size--;
+	delete del;
+}
+
+Comp* List::getComp(int key)
+{
+	if (key >= size || key < 0)
+	{
+		std::cout << "Out of bounds" << std::endl;
+		return 0;
+	}
+	
+	int tempKey = 0;
+	Comp* tempComp = head;
+	
+	while(tempKey != key)
+	{
+		tempComp = tempComp->next;
+		tempKey++;
+	}
+	
+	return tempComp;
 }
 
 bool List::isEmpty()
