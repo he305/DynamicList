@@ -19,6 +19,7 @@ private:
 	int size;
 	Comp* getComp(int key);
 	Comp* head;
+	Comp* tail;
 };
 
 #endif
