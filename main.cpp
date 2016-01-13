@@ -12,10 +12,13 @@ void addElementFunc();
 void searchElement();
 void fillList();
 void deleteElem();
+void helloScreen();
+int inputInt();
 
 int main()
 {
 	l = new List();
+	helloScreen();
 	showMenu();
 	return 0;
 }
@@ -65,12 +68,56 @@ void showMenu()
 				cout << "Unknown command, press any button to continue"  << endl;
 				getch();
 		}
-	}while(choise != 27);	
+	} while(choise != 27);	
 }
 
 void addElementFunc()
 {
 	cout << "Write a number (integer only) ";
+	int value = inputInt();
+		
+	l->addElement(value);
+}
+
+void searchElement()
+{
+	if (l->isEmpty())
+	{
+		cout << "List is clear";
+		return;	
+	}
+	
+	cout << "Write a key ";
+	int key = inputInt();
+	
+	cout << "Element at key " << key << " = " << l->get(key);
+}
+
+void deleteElem()
+{
+	if (l->isEmpty())
+	{
+		cout << "List is clear";
+		return;	
+	}
+	
+	cout << "Write a key ";
+	int key = inputInt();
+	
+	l->remove(key);
+	cout << "Deleted" << endl;
+}
+
+void fillList()
+{
+	for (int i = 0; i < 10; i++)
+	{
+		l->addElement(i);
+	}
+}
+
+int inputInt()
+{
 	int value;
 	
 	while (true)
@@ -89,77 +136,12 @@ void addElementFunc()
             continue;
         }
 	}
-		
-	l->addElement(value);
+	
+	return value;
 }
 
-void searchElement()
+void helloScreen()
 {
-	if (l->isEmpty())
-	{
-		cout << "List is clear";
-		return;	
-	}
-	
-	cout << "Write a key ";
-	int key;
-	
-	while (true)
-	{
-        if(cin >> key)
-        {
-        	cin.clear();
-        	cin.get();
-            break;
-        }
-        else if(!cin || key != (int)key)
-		{
-            cout << "Write an integer!";
-            cin.clear();
-            cin.get();
-            continue;
-        }
-	}
-	
-	cout << "Element at key " << key << " = " << l->get(key);
-}
-
-void deleteElem()
-{
-	if (l->isEmpty())
-	{
-		cout << "List is clear";
-		return;	
-	}
-	
-	cout << "Write a key ";
-	int key;
-	
-	while (true)
-	{
-        if(cin >> key)
-        {
-        	cin.clear();
-        	cin.get();
-            break;
-        }
-        else if(!cin || key != (int)key)
-		{
-            cout << "Write an integer!";
-            cin.clear();
-            cin.get();
-            continue;
-        }
-	}
-	
-	l->remove(key);
-	cout << "Deleted" << endl;
-}
-
-void fillList()
-{
-	for (int i = 0; i < 10; i++)
-	{
-		l->addElement(i);
-	}
+	cout << "Zdes dolgna bit zastavka, no ee poka net" << endl;
+	getch();
 }
