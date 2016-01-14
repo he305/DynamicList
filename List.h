@@ -20,6 +20,7 @@ private:
 	Comp* getComp(int key);
 	Comp* head;
 	Comp* tail;
+	int temp;
 };
 
 #endif
