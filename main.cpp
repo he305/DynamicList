@@ -129,7 +129,7 @@ int inputInt()
         }
         else if(!cin || value != (int)value)
 		{
-            cout << "Write an integer!";
+            cout << "¬ведите число!";
             cin.clear();
             cin.get();
             continue;

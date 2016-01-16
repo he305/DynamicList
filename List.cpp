@@ -95,7 +95,7 @@ Comp* List::getComp(int key)
 {
 	if (key >= size || key < 0)
 	{
-		std::cout << "Out of bounds" << std::endl;
+		std::cout << "Выход за пределы списка" << std::endl;
 		return 0;
 	}
 	
